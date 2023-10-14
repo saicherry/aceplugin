@@ -10,5 +10,21 @@
  * Text Domain:       aceplugin
  */
 
+ if(!defined('ABSPATH')){
+    header("Location : /");
+    die();
+ }
+
+ function myfirstfucntion(){
+
+ }
+
+ register_activation_hook( __FILE__, 'myfirstfucntion' );
+
+ function myshortcode(){
+  return "<h1>Hello World</h1>";
+ }
+
+ add_shortcode( 'msc', 'myshortcode' );
 
  ?>
