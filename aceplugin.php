@@ -16,7 +16,15 @@
  }
 
  function myfirstfucntion(){
-
+    global $wpdb, $table_prefix;
+    $wp_emp = $table_prefix.'emp';
+    $q = "CREATE TABLE IF NOT EXISTS `$wp_emp`. ( 
+        `id` INT NOT NULL AUTO_INCREMENT ,
+        `name` VARCHAR(128) NOT NULL ,
+        `email` VARCHAR(255) NOT NULL ,
+        `status` BOOLEAN NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;
+    ";
+    $wpdb->query($q);
  }
 
  register_activation_hook( __FILE__, 'myfirstfucntion' );
